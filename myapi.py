@@ -31,7 +31,7 @@ jokes_list = []
 @app.route('/', methods=['GET','POST'])
 def hello_world():
 	if request.method == 'POST':
-	    return jsonify(jokes=[ _.serialize() for _ in jokes_list])
+	return jsonify(jokes=[ _.serialize() for _ in jokes_list])
 	return """
 		<html>
 		<head>
