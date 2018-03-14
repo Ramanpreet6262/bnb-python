@@ -30,23 +30,8 @@ jokes_list = []
 
 @app.route('/', methods=['GET','POST'])
 def hello_world():
-	if request.method == 'POST':
-		return jsonify(jokes=[ _.serialize() for _ in jokes_list])
-	return """
-		<html>
-		<head>
-			<title>My Heroku</title>
-		<body>
-		<p>methods:</p>
-		<dl>
-			<dt>POST</dt>
-			<dd>/</dd>
-			<dt>PUT</dt>
-			<dd>/add - data: String, category: String in Request form Body</dd>
-			<dt>PATCH<dt>
-			<dd>/update/<joke-id> - data: String, category: String in Request form Body</dd>
-		</dl>
-	"""
+	return jsonify(jokes=[ _.serialize() for _ in jokes_list])
+
 
 @app.route('/add', methods=['PUT', 'get'])
 def add_joke():
