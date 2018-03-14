@@ -33,13 +33,13 @@ def hello_world():
 	if request.method == 'POST':
 	    return jsonify(jokes=[ _.serialize() for _ in jokes_list])
 	return """
-		methods:
-		1. "POST":
-			/
-		2. "PUT":
-			/add - data: String, category: String in Request form Body
-		3. "PATCH":
-			/update/<joke-id> - data: String, category: String in Request form Body
+		methods:\n
+		1. "POST":\n
+			/\n
+		2. "PUT":\n
+			/add - data: String, category: String in Request form Body\n
+		3. "PATCH":\n
+			/update/<joke-id> - data: String, category: String in Request form Body\n
 	"""
 
 @app.route('/add', methods=['PUT', 'get'])
