@@ -28,9 +28,19 @@ class Joke():
 jokes_list = []
 
 
-@app.route('/', methods=['POST'])
+@app.route('/', methods=['GET','POST'])
 def hello_world():
-    return jsonify(jokes=[ _.serialize() for _ in jokes_list])
+	if request.method == 'POST':
+	    return jsonify(jokes=[ _.serialize() for _ in jokes_list])
+	return """
+		methods:
+		1. "POST":
+			/
+		2. "PUT":
+			/add - data: String, category: String in Request form Body
+		3. "PATCH":
+			/update/<joke-id> - data: String, category: String in Request form Body
+	"""
 
 @app.route('/add', methods=['PUT', 'get'])
 def add_joke():
